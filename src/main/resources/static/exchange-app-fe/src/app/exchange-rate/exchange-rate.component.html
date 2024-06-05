@@ -1,0 +1,70 @@
+<div>
+  <h2>Exchange Rate Calculator</h2>
+  <div>
+    <label for="eurAmount">Amount in EUR:</label>
+    <input
+      type="number"
+      [min]="0"
+      id="eurAmount"
+      [(ngModel)]="eurAmount"
+      (ngModelChange)="calculateExchange()"
+      [disabled]="!exchangeRateAvailable"
+      (input)="onAmountInput($event)"
+      class="input-box amount-input"
+    />
+  </div>
+  <div>
+    <label for="selectedCurrency">Select Currency:</label>
+    <select
+      id="selectedCurrency"
+      [(ngModel)]="selectedCurrency"
+      (change)="onCurrencyChange()"
+      class="input-box currency-select"
+    >
+      <option *ngFor="let currency of currencies" [value]="currency">
+        {{ currency }}
+      </option>
+    </select>
+  </div>
+  <div *ngIf="exchangeRate !== -1" class="exchange-rate-container">
+    <div class="exchange-rate-cell">
+      <p class="exchange-rate-label">Exchange Rate:</p>
+      <p class="exchange-rate-value">{{ exchangeRate }}</p>
+    </div>
+    <div class="exchange-rate-cell">
+      <p class="exchange-rate-label">Converted Amount:</p>
+      <p class="exchange-rate-value">
+        {{ convertedAmount | number : "1.2-2" }}
+      </p>
+    </div>
+  </div>
+  <div *ngIf="exchangeRate === -1">
+    <p>No exchange rate found</p>
+  </div>
+  <div>
+    <h3>Rates for the past 2 weeks</h3>
+    <ng-container
+      *ngIf="historicalRates && historicalRates.length > 0; else noRates"
+    >
+      <table>
+        <thead>
+          <tr>
+            <th>Currency Code</th>
+            <th>Rate</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rate of historicalRates">
+            <td>{{ rate.targetCurrency }}</td>
+            <td>{{ rate.rate }}</td>
+            <td>{{ rate.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-template #noRates>
+      <p>No rates for the past 2 weeks found</p>
+    </ng-template>
+  </div>
+</div>

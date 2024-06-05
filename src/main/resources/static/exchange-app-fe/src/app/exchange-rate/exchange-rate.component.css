@@ -1,0 +1,104 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2,
+h3 {
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 16px;
+}
+
+input[type="number"],
+select {
+  width: calc(100% - 20px);
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.input-box {
+  -moz-appearance: textfield;
+}
+
+.input-box::-webkit-inner-spin-button,
+.input-box::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amount-input,
+.currency-select {
+  width: calc(100% - 20px);
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.exchange-rate-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.exchange-rate-label {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.exchange-rate-value {
+  font-size: 16px;
+  color: #666;
+  font-weight: bold;
+}
